@@ -3,6 +3,8 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from .forms import RegistroForm, PerfilForm
 from .models import Perfil
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 
 def registro(request):
     if request.method == 'POST':
@@ -46,5 +48,16 @@ def perfil(request):
     return render(request, 'accounts/perfil.html', {'form': form})
 
 def signup(request):
-    return render(request, 'accounts/registro.html')
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()  # Guarda el nuevo usuario
+            messages.success(request, 'Tu cuenta ha sido creada exitosamente!')
+            return redirect('login')  # Redirige a la vista de login
+        else:
+            messages.error(request, 'Por favor corrige los errores en el formulario')
+    else:
+        form = UserCreationForm()
+    
+    return render(request, 'accounts/registro.html', {'form': form})
 
