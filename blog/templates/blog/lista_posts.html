@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Lista de Posts</h1>
+<p>Bienvenid@ a mi blog. Mi nombre es Delfina,soy ingeniera quimica de Santa Fe, Argentina. Gracias por leer</p> 
+<ul>
+    {% for post in posts %}
+        <li>{{ post.title }} - <a href="#">{{ post.content }}</a></li>
+    {% empty %}
+        <li>No hay posts disponibles.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'create_post' %}">Crear un nuevo post</a>
+{% endblock %}
