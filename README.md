@@ -1,1 +1,1 @@
-Este proyecto fue creando entorno a la 3era entrega de un curso de Lenguaje Python. El mismo consiste en un bosquejo de un blog utilizando Django y el patrón MVT.
+Este proyecto conforma la entrega final del curso de python. Comprende un blog donde se pueden hacer comentarios y posteos sobre temas de interes personal. 
