@@ -10,7 +10,7 @@
         <ul>
             <li><a href="{% url 'home' %}">Inicio</a></li>
             {% if user.is_authenticated %}
-                <li><a href="{% url 'create_post' %}">Crear Post</a></li>
+                <li><a href="{% url 'crear_post' %}">Crear Post</a></li>
                 <li><a href="{% url 'logout' %}">Cerrar sesión</a></li>
             {% else %}
                 <li><a href="{% url 'login' %}">Iniciar sesión</a></li>

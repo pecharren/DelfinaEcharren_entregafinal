@@ -2,7 +2,7 @@
 
 {% block content %}
 <h1>Crear un nuevo post</h1>
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">  <!-- Agregado enctype -->
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Crear post</button>
